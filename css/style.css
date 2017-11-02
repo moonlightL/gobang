@@ -1,0 +1,51 @@
+html,body {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    position: relative;
+    width: 540px;
+    height: 540px;
+    margin: 10px auto;
+    padding-top: 7px;
+    padding-left: 7px;
+    background: url("../images/chessboard.png") no-repeat;
+    cursor: pointer;
+}
+
+.none {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    box-sizing: border-box;
+    /*border: 1px solid #fff;*/
+}
+
+.black_flag {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    background: url("../images/black_flag.png") no-repeat;
+}
+
+.black_flag_cur {
+    position: absolute;
+    background: url("../images/black_flag_cur.png") no-repeat;
+    /*设置点击无效*/
+    pointer-events: none;
+}
+
+.white_flag {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    background: url("../images/white_flag.png") no-repeat;
+}
+
+.white_flag_cur {
+    position: absolute;
+    background: url("../images/white_flag_cur.png") no-repeat;
+    /*设置点击无效*/
+    pointer-events: none;
+}
