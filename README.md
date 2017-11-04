@@ -448,6 +448,7 @@ Chessboard.prototype._checkSuccess = function(x, y) {
 
 ![image](http://ow97db1io.bkt.clouddn.com/gobang.gif)
 
+剩余的一些文本提示，倒计时就不在此处介绍。具体代码可以在下边提供的链接中下载。
 
 ## 四、源码下载
 
