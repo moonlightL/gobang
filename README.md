@@ -9,7 +9,7 @@
 
 ### 2.2 实现思路
 
-1) 棋盘：通过图片（chessboard.png）和 table 标签单元格渲染出棋盘。
+1) 棋盘：通过图片（chessboard.png）和 div 标签渲染出棋盘。
 
 2) 棋子：通过图片（black_flag.png、white_flag.png等）渲染出黑白棋子。落子前，鼠标出会出现一个可以随鼠标移动的棋子。我们创建一个浮动的 div，动态设置其 top 和 left 。
 
@@ -20,6 +20,7 @@
 ### 2.3 涉及技术
 DOM操作、面向对象、事件操作和间隔函数 setInterval
 
+<!-- more -->
 ### 2.4 项目结构
 
 ![image](http://ow97db1io.bkt.clouddn.com/gobang-00.jpg)
@@ -444,7 +445,7 @@ Chessboard.prototype._checkSuccess = function(x, y) {
 }
 ```
 
-演示结果:
+演示结果：
 
 ![image](http://ow97db1io.bkt.clouddn.com/gobang.gif)
 
