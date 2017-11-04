@@ -5,7 +5,7 @@
 
 ### 2.1 效果展示
 
-![image](http://ow97db1io.bkt.clouddn.com/gobang.gif)
+![image](http://ow97db1io.bkt.clouddn.com/gobang-00.gif)
 
 ### 2.2 实现思路
 
@@ -444,7 +444,9 @@ Chessboard.prototype._checkSuccess = function(x, y) {
 }
 ```
 
-演示结果如文章开头的演示图。
+演示结果:
+
+![image](http://ow97db1io.bkt.clouddn.com/gobang.gif)
 
 
 ## 四、源码下载
