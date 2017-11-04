@@ -1,5 +1,5 @@
 var Info = function(infoContainer) {
-    this.time = 0.1 * 60;// 10 分钟
+    this.time = 10 * 60;// 10 分钟
     this.infoContainer = infoContainer;
     this.textMap= [];
     this.textMap[true] = "棋手：黑子";

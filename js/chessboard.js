@@ -55,8 +55,8 @@ Chessboard.prototype.init = function() {
     var that = this;
     this.timeId = setInterval(function() {
         if (time == 0) {
+            that.gameOver();
             alert("时间到，比赛结束！");
-            clearInterval(that.timeId);
             return;
         }
         time --;
@@ -106,10 +106,7 @@ Chessboard.prototype.addListener = function(container) {
 
         // 判断是否胜利
         if (that._checkSuccess(x, y)) {
-            document.getElementById("mouse").style.display = "none";
-            container.onclick = null;
-            document.body.onmousemove = null;
-            clearInterval(that.timeId);
+            that.gameOver();
             alert(that.resultMap[that.currentFlag]);
             return;
         }
@@ -119,6 +116,13 @@ Chessboard.prototype.addListener = function(container) {
         // 修改信息
         that.info.changeFlag(that.currentFlag);
     }
+}
+
+Chessboard.prototype.gameOver = function() {
+    document.getElementById("mouse").style.display = "none";
+    document.getElementById("container").onclick = null;
+    document.body.onmousemove = null;
+    clearInterval(this.timeId);
 }
 
 // 判断棋局
