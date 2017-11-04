@@ -1,4 +1,5 @@
-var Chessboard = function() {
+var Chessboard = function(info) {
+    this.info = info;
     // 保存棋盘棋子状态
     this.flagArr = [];
     this.size = 36;
@@ -22,9 +23,10 @@ var Chessboard = function() {
 
     // 保存结果映射关系
     this.resultMap = [];
-    this.resultMap[true] = "黑子胜利";
-    this.resultMap[false] = "白子胜利";
+    this.resultMap[true] = "黑子胜利！";
+    this.resultMap[false] = "白子胜利！";
 
+    this.timeId = null;
 }
 
 // 初始化棋盘
@@ -46,30 +48,52 @@ Chessboard.prototype.init = function() {
 
     // 添加事件监听器
     this.addListener(container);
+
+    // 倒计时
+    this.info.changeFlag(this.currentFlag);
+    var time = this.info.getTime();
+    var that = this;
+    this.timeId = setInterval(function() {
+        if (time == 0) {
+            alert("时间到，比赛结束！");
+            clearInterval(that.timeId);
+            return;
+        }
+        time --;
+        that.info.changeTime("剩余时间："+time + " 秒");
+    },1000);
 }
 
 // 落子事件监听器
 Chessboard.prototype.addListener = function(container) {
     var that = this;
 
-    // 设置落子前的鼠标样式
     var mouse = document.createElement("div");
     mouse.id = "mouse";
-    mouse.style.width = mouse.style.height = 36 + "px";
-    document.body.appendChild(mouse);
-    document.body.onmousemove = function(event) {
-        mouse.className = that.flagCurMap[that.currentFlag];
-        var x = event.clientX - 16;
-        var y = event.clientY - 16;
-        mouse.style.top = y + "px";
-        mouse.style.left = x + "px";
+
+    // 鼠标进入棋盘后，设置落子前的鼠标样式
+    container.onmouseenter = function() {
+        mouse.style.width = mouse.style.height = 36 + "px";
+        document.body.appendChild(mouse);
+        document.body.onmousemove = function(event) {
+            mouse.className = that.flagCurMap[that.currentFlag];
+            var x = event.clientX - 16;
+            var y = event.clientY - 16;
+            mouse.style.top = y + "px";
+            mouse.style.left = x + "px";
+        }
+    }
+
+    // 鼠标离开期盼后
+    container.onmouseleave = function() {
+        document.body.onmousemove = null;
     }
 
     // 落子监听
     container.onclick = function(event) {
         // 判断落子点是否存在棋子
         if (event.target.className != "none") {
-            alert("此处不能落子!");
+            alert("此处不能落子！");
             return;
         }
 
@@ -85,12 +109,15 @@ Chessboard.prototype.addListener = function(container) {
             document.getElementById("mouse").style.display = "none";
             container.onclick = null;
             document.body.onmousemove = null;
+            clearInterval(that.timeId);
             alert(that.resultMap[that.currentFlag]);
             return;
         }
 
         // 换棋手
         that.currentFlag = !that.currentFlag;
+        // 修改信息
+        that.info.changeFlag(that.currentFlag);
     }
 }
 
@@ -154,7 +181,7 @@ Chessboard.prototype._checkSuccess = function(x, y) {
     }
 
     // 右上到左下判断
-    var b = 14 - y -x;
+    var b = 14 - y - x;
     var index2 = 14;
     if (b > 0) {
         b = 14 - b;

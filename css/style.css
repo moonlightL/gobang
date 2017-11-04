@@ -1,13 +1,14 @@
 html,body {
     padding: 0;
     margin: 0;
+    background-color: #EADCBE;
 }
 
 .container {
     position: relative;
     width: 540px;
     height: 540px;
-    margin: 10px auto;
+    margin: 30px auto;
     padding-top: 7px;
     padding-left: 7px;
     background: url("../images/chessboard.png") no-repeat;
@@ -48,4 +49,20 @@ html,body {
     background: url("../images/white_flag_cur.png") no-repeat;
     /*设置点击无效*/
     pointer-events: none;
+}
+
+.info {
+    width: 538px;
+    height: 50px;
+    border: 1px solid #666;
+    margin: 10px auto;
+    color: #77736B;
+}
+
+.info .flag,.info .time {
+    display: inline-block;
+    width:250px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
 }
