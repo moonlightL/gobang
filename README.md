@@ -5,7 +5,7 @@
 
 ### 2.1 效果展示
 
-![image](http://images.extlight.com/gobang-00.gif)
+![image](https://images.extlight.com/gobang-00.gif)
 
 ### 2.2 实现思路
 
@@ -23,7 +23,7 @@ DOM操作、面向对象、事件操作和间隔函数 setInterval
 <!-- more -->
 ### 2.4 项目结构
 
-![image](http://images.extlight.com/gobang-00.jpg)
+![image](https://images.extlight.com/gobang-00.jpg)
 
 ## 三、实现步骤
 
@@ -130,7 +130,7 @@ Game.prototype.start = function() {
 
 最终效果如下：
 
-![image](http://images.extlight.com/gobang-02-1.jpg)
+![image](https://images.extlight.com/gobang-02-1.jpg)
 
 
 为了方便查看 div 与棋盘图片中格子之间的对应关系，笔者将 div 边框设置成白色。
@@ -202,7 +202,7 @@ Chessboard.prototype.addListener = function() {
 
 结果如下图：
 
-![image](http://images.extlight.com/gobang-02-1.gif)
+![image](https://images.extlight.com/gobang-02-1.gif)
 
 ### 3.3 落子
 
@@ -295,7 +295,7 @@ Chessboard.prototype.addListener = function(container) {
 
 运行结果如下：
 
-![image](http://images.extlight.com/gobang-03.gif)
+![image](https://images.extlight.com/gobang-03.gif)
 
 ### 3.4 判断输赢
 
@@ -447,7 +447,7 @@ Chessboard.prototype._checkSuccess = function(x, y) {
 
 演示结果：
 
-![image](http://images.extlight.com/gobang.gif)
+![image](https://images.extlight.com/gobang.gif)
 
 剩余的一些文本提示，倒计时就不在此处介绍。具体代码可以在下边提供的链接中下载。
 
